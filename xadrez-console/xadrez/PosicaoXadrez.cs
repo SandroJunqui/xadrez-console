@@ -13,7 +13,7 @@ namespace xadrez
             Linha = linha;
         }
 
-        public Posicao ToPosicao()
+        public Posicao ToPosicao()  // converte o tabuleiro para a posição da matriz
         {
             return new Posicao(8 - Linha, Coluna - 'a');
         }
