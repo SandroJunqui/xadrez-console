@@ -1,6 +1,6 @@
 ﻿namespace tabuleiro
 {
-    class Peca
+    abstract class Peca
     {
         public Posicao posicao { get; set; }
         public Cor cor { get; protected set; }  // alteração  permitida somente pela subclasse
@@ -19,5 +19,7 @@
         {
             qteMovimentos++;
         }
+
+        public abstract bool[,] MovimentosPossiveis();  // a partir de uma peça quais os movimentos possiveis
     }
 }

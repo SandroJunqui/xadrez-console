@@ -18,7 +18,7 @@
             return pecas[linha, coluna];
         }
 
-        public Peca peca(Posicao pos)   // sobrecarga
+        public Peca peca(Posicao pos)   // sobrecarga - retorna a posição da peça
         {
             return pecas[pos.Linha, pos.Coluna];
         }
@@ -52,7 +52,7 @@
 
         }
 
-        public bool PosicaoValida(Posicao pos)  // retorna se a posição é válida ou não
+        public bool PosicaoValida(Posicao pos)  // retorna se a posição é válida ou não(esta dentro dos limites do tabuleiro
         {
             if(pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna < 0 || pos.Coluna >= Colunas)
             {
