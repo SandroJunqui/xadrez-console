@@ -19,6 +19,11 @@
         {
             qteMovimentos++;
         }
+        
+        public void DecrementarQteMovimentos()
+        {
+            qteMovimentos--;
+        }
 
         public bool ExisteMovimentosPossiveis() // verifica se a peça nao esta bloqueada para movimentos
         {
