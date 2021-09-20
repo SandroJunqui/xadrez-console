@@ -5,8 +5,8 @@ namespace xadrez
     class PartidaDeXadrez
     {
         public Tabuleiro tab { get; private set; }
-        private int Turno;
-        private Cor JogadorAtual;
+        public int Turno { get; private set; }
+        public Cor JogadorAtual { get; private set; }
         public bool Terminada { get; private set; }
 
         public PartidaDeXadrez()
@@ -24,6 +24,41 @@ namespace xadrez
             p.IncrementarQteMovimentos();   // acrescenta o movimento
             Peca PecaCapturada = tab.RetirarPeca(destino);  //retira a peça do destino
             tab.ColocarPeca(p, destino);    // coloca a peça que estava na origem para o destino
+        }
+
+        public void RealizaJogada(Posicao origem, Posicao destino)  // apos a jogada mudar o jogador
+        {
+            ExecutaMovimento(origem, destino);
+            Turno++;
+            MudaJogador();
+        }
+
+        public void ValidarPosicaoDeOrigem(Posicao pos)
+        {
+            if(tab.peca(pos) == null)   // verifica se a casa escolhida esta vazia(nao tem peça)
+            {
+                throw new TabuleiroException("Não existe peça na posição de origem escolhida!");
+            }
+            if(JogadorAtual != tab.peca(pos).cor)   // verifica se a cor da peça é a sua
+            {
+                throw new TabuleiroException("A peça de origem escolhida não é sua!");
+            }
+            if (!tab.peca(pos).ExisteMovimentosPossiveis())
+            {
+                throw new TabuleiroException("Não há movimentos possíveis para a peça de origem escolhida!");
+            }
+        }
+
+        public void MudaJogador()   // acao de mudar o jogador
+        {
+            if(JogadorAtual == Cor.Branca)
+            {
+                JogadorAtual = Cor.Preta;
+            }
+            else
+            {
+                JogadorAtual = Cor.Branca;
+            }
         }
 
         private void ColocarPecas()
