@@ -41,7 +41,7 @@
             return false;
         }
 
-        public bool PodeMoverPara(Posicao pos)  // metodo para verificar se a peça pode ser movida para o destino
+        public bool MovimentoPossivel(Posicao pos)  // metodo para verificar se a peça pode ser movida para o destino
         {
             return MovimentosPossiveis()[pos.Linha, pos.Coluna];
         }
