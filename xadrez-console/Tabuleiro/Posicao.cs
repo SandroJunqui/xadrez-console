@@ -11,7 +11,7 @@
             Coluna = coluna;
         }
 
-        public void DefinirValores(int linha, int coluna)   // definir os valores da posição
+        public void DefinirValores(int linha, int coluna)   // definir os valores da posição - SABER A POSIÇÃO DA PEÇA
         {
             Linha = linha;
             Coluna = coluna;

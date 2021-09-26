@@ -131,7 +131,7 @@ namespace xadrez
             }
         }
 
-        public void RealizaJogada(Posicao origem, Posicao destino)  // apos a jogada mudar o jogador
+        public void RealizaJogada(Posicao origem, Posicao destino)  // realiza a jogada e apos a jogada mudar para o proximo jogador
         {
             Peca pecaCapturada = ExecutaMovimento(origem, destino);
             if (EstaEmXeque(JogadorAtual))

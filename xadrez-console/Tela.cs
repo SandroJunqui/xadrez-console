@@ -50,7 +50,7 @@ namespace xadrez_console
             {
                 Console.Write(x + " ");
             }
-            Console.Write("] ");
+            Console.Write("]");
         }
 
         public static void ImprimirTabluleiro(Tabuleiro tab)    // mostrar o tabuleiro
@@ -66,12 +66,15 @@ namespace xadrez_console
                 Console.WriteLine();
             }
             Console.WriteLine("  a b c d e f g h");
+
+            Console.WriteLine();
+            Console.WriteLine("Digite  s  para Sair");
         }
 
-        public static void ImprimirTabluleiro(Tabuleiro tab, bool[,] posicoesPossiveis)    // 
+        public static void ImprimirTabluleiro(Tabuleiro tab, bool[,] posicoesPossiveis)    // sobrecarga - para imprimir movimentos possiveis
         {
             ConsoleColor fundoOriginal = Console.BackgroundColor;   // pega o fundo original(neste caso black)
-            ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
+            ConsoleColor fundoAlterado = ConsoleColor.DarkGray; 
 
             for (int i = 0; i < tab.Linhas; i++)
             {
@@ -96,11 +99,16 @@ namespace xadrez_console
             Console.BackgroundColor = fundoOriginal;
         }
 
-        public static PosicaoXadrez LerPosicaoXadrez()
+        public static PosicaoXadrez LerPosicaoXadrez()  // capturar o que o usuario digitou no teclado
         {
             string s = Console.ReadLine();
+            if (s == "s")
+            {
+                Environment.Exit(0);
+            }
             char Coluna = s[0];
             int Linha = int.Parse(s[1] + "");
+            
             return new PosicaoXadrez(Coluna, Linha);
         }
 

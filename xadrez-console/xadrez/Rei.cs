@@ -16,10 +16,10 @@ namespace xadrez
             return "R";
         }
 
-        private bool PodeMover(Posicao pos) // mover a peça qdo a casa estiver libree até a peça adversária
+        private bool PodeMover(Posicao pos) // mover a peça qdo a casa estiver livre ou até a peça adversária
         {
             Peca p = tab.peca(pos);
-            return p == null || p.cor != cor;
+            return p == null || p.cor != cor;   // verifica se a casa esta vazia ou e peça é da cor adversária
         }
 
         private bool TesteTorreParaRoque(Posicao pos)
@@ -32,7 +32,7 @@ namespace xadrez
         {
             bool[,] mat = new bool[tab.Linhas, tab.Colunas];
 
-            Posicao pos = new Posicao(0, 0);
+            Posicao pos = new Posicao(0, 0);    // posição do Rei
 
             // Acima
             pos.DefinirValores(posicao.Linha - 1, posicao.Coluna);

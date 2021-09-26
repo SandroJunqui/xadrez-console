@@ -49,7 +49,6 @@
             aux.posicao = null; // informando que a peça foi retirada
             pecas[pos.Linha, pos.Coluna] = null;    // marcando a posição da peça retirada como nula/vazia
             return aux;
-
         }
 
         public bool PosicaoValida(Posicao pos)  // retorna se a posição é válida ou não(esta dentro dos limites do tabuleiro
